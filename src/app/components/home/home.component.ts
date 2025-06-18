@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-home',
@@ -8,10 +8,27 @@ import { Component } from '@angular/core';
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
+
+  textoCompleto: string = "Só você e eu, no teu restaurante favorito, tomando aquele gin, uma boa conversa... E quem sabe algo a mais? Bora?";
+  textoDigitando: string = "";
+  index: number = 0;
+
   naoTop = 0;
   naoLeft = 0;
   isBotaoFugindo = false;
+
+  ngOnInit(): void {
+    this.digitarTexto();
+  }
+
+  digitarTexto() {
+    if (this.index < this.textoCompleto.length) {
+      this.textoDigitando += this.textoCompleto.charAt(this.index);
+      this.index++;
+      setTimeout(() => this.digitarTexto(), 40); 
+    }
+  }
 
   aceitarConvite() {
   const mensagem = encodeURIComponent("Mal posso esperar pra sair com você, gostoso 😈🔥");
