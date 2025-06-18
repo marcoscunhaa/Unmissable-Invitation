@@ -1,0 +1,31 @@
+<div
+  class="flex flex-col items-center justify-center min-h-screen bg-gradient-to-r from-purple-300 via-pink-300 to-red-300 p-4">
+  <h1 class="title text-3xl font-extrabold text-center text-white drop-shadow-lg mb-6">🍸 Convite Especial 🍸</h1>
+
+  <div class="bg-white rounded-2xl shadow-xl p-1 mb-6 max-w-xs mx-auto">
+    <img src="https://i.ibb.co/VWXnHJWZ/download-7.jpg" alt="Gato paquerador"
+      class="rounded-xl object-cover w-full h-auto" />
+  </div>
+
+  <p class="text-body text-3xl text-center text-white mb-8 max-w-md drop-shadow mt-4">
+    Só você e eu, no teu restaurante favorito, tomando aquele gin, uma boa conversa, E um quem sabe algo há mais? Bora?
+  </p>
+
+  <div class="relative flex gap-6 w-80 h-56 items-center justify-center">
+    <!-- Botão SIM -->
+    <button (click)="aceitarConvite()"
+      class="bg-green-400 text-body hover:bg-green-700 text-white font-semibold py-3 px-6 rounded-full shadow-lg transition transform hover:scale-105">
+      😈 Sim
+    </button>
+
+    <!-- Botão NÃO (fujão) -->
+    <button [ngStyle]="{
+        top: naoTop + 'px',
+        left: naoLeft + 'px',
+        position: isBotaoFugindo ? 'absolute' : 'static'
+      }" (mouseenter)="ativarFuga()" (touchstart)="ativarFuga()" (click)="moverBotao()"
+      class="bg-red-400 text-body text-white font-semibold py-3 px-6 rounded-full shadow-lg transition transform hover:scale-105 cursor-pointer">
+      🙄 Não
+    </button>
+  </div>
+</div>
