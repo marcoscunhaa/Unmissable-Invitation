@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import emailjs, { EmailJSResponseStatus } from 'emailjs-com';
 
 @Component({
   selector: 'app-home',
@@ -10,10 +11,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  textoCompleto: string = "Só você e eu, no teu restaurante favorito, tomando aquele gin, uma boa conversa... E quem sabe algo a mais? Bora?";
+  textoCompleto: string = "Só você e eu, no teu restaurante favorito, tomando aquele gin, beijando devagarinho e ver quem resiste mais. Bora?";
   textoDigitando: string = "";
   index: number = 0;
-
   naoTop = 0;
   naoLeft = 0;
   isBotaoFugindo = false;
@@ -26,24 +26,67 @@ export class HomeComponent implements OnInit {
     if (this.index < this.textoCompleto.length) {
       this.textoDigitando += this.textoCompleto.charAt(this.index);
       this.index++;
-      setTimeout(() => this.digitarTexto(), 40); 
+      setTimeout(() => this.digitarTexto(), 40);
     }
   }
 
+  mostrarBalao = false;
+
+  mostrarOcultarBalao() {
+    this.mostrarBalao = !this.mostrarBalao;
+  }
+
+
+  mostrarAlerta = false;
+
+  fecharAlerta() {
+    this.mostrarAlerta = false;
+  }
+
+
   aceitarConvite() {
-  const mensagem = encodeURIComponent("Mal posso esperar pra sair com você, gostoso 😈🔥");
-  window.open(`https://wa.me/5588997475684?text=${mensagem}`, '_blank');
-}
+    const templateParams = {
+      to_name: 'Marcos Cunha',
+      from_name: 'Angular App',
+      Subject: 'Dya topou o date 😈🔥',
+      message: `
+        Ela aceitouuuu ❤️
+
+        📅 Data: 18/07 - Sexta Feira
+        🕗 Hora: 20:00
+        📍 Local: Onde ela quiser
+
+        Cuida em se arrumar e ficar cheiroso meninão!! 😎🔥
+      `
+    };
+
+    emailjs.send('service_ek4caxi', 'template_06jlby8', templateParams, 'PS9Bj3Tjz0xgt63Iv')
+      .then((result: EmailJSResponseStatus) => {
+        console.log('SUCESSO!', result.status, result.text);
+        this.mostrarBalao = false;
+        this.mostrarAlerta = true;
+      }, (error) => {
+        console.log('ERRO:', error.text);
+      });
+  }
+
+  abrirWhatsappPersonalizado() {
+    const numero = '5588997475684';
+    const mensagem = encodeURIComponent('Oii, tem como mudar o horário ou dia ? ❤️');
+
+    const url = `https://wa.me/${numero}?text=${mensagem}`;
+    window.open(url, '_blank');
+  }
+
   ativarFuga() {
     this.isBotaoFugindo = true;
     this.moverBotao();
   }
 
   moverBotao() {
-    if (!this.isBotaoFugindo) return;
-
-    const containerWidth = 300;
-    const containerHeight = 200;
+    const container = document.querySelector('.relative') as HTMLElement;
+    const containerWidth = container.offsetWidth;
+    const containerHeight = container.offsetHeight;
     const buttonWidth = 120;
     const buttonHeight = 60;
 

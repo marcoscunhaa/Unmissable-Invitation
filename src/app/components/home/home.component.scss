@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poiret+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap');
 
 .title {
   font-family: "Permanent Marker", cursive;
@@ -11,4 +12,16 @@
   font-family: "Poiret One", sans-serif;
   font-weight: 400;
   font-style: normal;
+}
+
+.invite {
+  font-family: "Dancing Script", cursive;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+button {
+  transition: top 0.3s, left 0.3s;
 }
