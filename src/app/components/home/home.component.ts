@@ -1,6 +1,5 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import emailjs, { EmailJSResponseStatus } from 'emailjs-com';
 
 @Component({
   selector: 'app-home',
@@ -45,34 +44,16 @@ export class HomeComponent implements OnInit {
 
 
   aceitarConvite() {
-    const templateParams = {
-      to_name: 'Marcos Cunha',
-      from_name: 'Angular App',
-      Subject: 'Dya topou o date 😈🔥',
-      message: `
-        Ela aceitouuuu ❤️
+    const numero = '5588997475684';
+    const mensagem = encodeURIComponent('Mal posso esperar pra sair com você, gostoso 😈🔥');
 
-        📅 Data: 18/07 - Sexta Feira
-        🕗 Hora: 20:00
-        📍 Local: Onde ela quiser
-
-        Cuida em se arrumar e ficar cheiroso meninão!! 😎🔥
-      `
-    };
-
-    emailjs.send('service_ek4caxi', 'template_06jlby8', templateParams, 'PS9Bj3Tjz0xgt63Iv')
-      .then((result: EmailJSResponseStatus) => {
-        console.log('SUCESSO!', result.status, result.text);
-        this.mostrarBalao = false;
-        this.mostrarAlerta = true;
-      }, (error) => {
-        console.log('ERRO:', error.text);
-      });
+    const url = `https://wa.me/${numero}?text=${mensagem}`;
+    window.open(url, '_blank');
   }
 
-  abrirWhatsappPersonalizado() {
+  mudarProposta() {
     const numero = '5588997475684';
-    const mensagem = encodeURIComponent('Oii, tem como mudar o horário ou dia ? ❤️');
+    const mensagem = encodeURIComponent('Oii gato, tem como mudar o horário ? ❤️');
 
     const url = `https://wa.me/${numero}?text=${mensagem}`;
     window.open(url, '_blank');
@@ -96,4 +77,6 @@ export class HomeComponent implements OnInit {
     this.naoLeft = Math.floor(Math.random() * maxX);
     this.naoTop = Math.floor(Math.random() * maxY);
   }
+
+
 }

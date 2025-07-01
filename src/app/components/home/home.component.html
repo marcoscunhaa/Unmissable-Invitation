@@ -2,11 +2,11 @@
   class="flex flex-col items-center justify-center min-h-screen bg-gradient-to-r from-rose-300 via-pink-200 to-yellow-100 p-4">
 
   <!-- Balão de confirmação -->
-  <div *ngIf="mostrarBalao"
+  <div *ngIf="mostrarBalao" [ngClass]="{ 'animate-fade-slide-in': mostrarBalao }"
     class="invite relative bg-yellow-200 text-black px-4 py-3 rounded-xl shadow-md mb-6 max-w-xs text-left">
 
     <!-- Ícone de fechar (X) -->
-    <button (click)="mostrarOcultarBalao()"
+    <button (click)="mostrarOcultarBalao()" 
       class="absolute top-2 right-2 text-gray-500 hover:text-red-700 text-xl font-bold">
       ✖
     </button>
@@ -26,7 +26,7 @@
       </button>
 
       <!-- Botão de Recusar ou Brincar -->
-      <button (click)="abrirWhatsappPersonalizado()" class="text-gray-800 py-2 px-4 hover:border-b-2 hover:text-red-600 hover:border-red-600 transition-all duration-200 flex items-center gap-1">
+      <button (click)="mudarProposta()" class="text-gray-800 py-2 px-4 hover:border-b-2 hover:text-red-600 hover:border-red-600 transition-all duration-200 flex items-center gap-1">
         ❌ Pera
       </button>
     </div>
@@ -60,13 +60,6 @@
       class="bg-red-400 text-body text-white font-semibold py-3 px-6 rounded-full shadow-lg transition transform hover:scale-105 cursor-pointer">
       🙄 Não
     </button>
-  </div>
-
-  <!-- Alerta de sucesso -->
-  <div *ngIf="mostrarAlerta"
-    class="fixed text-body top-1 bg-green-300 text-black-700 px-4 py-3 rounded-lg shadow-lg flex items-center gap-2 animate-fade-in">
-    😳 Email de confirmação enviado!!
-    <button (click)="fecharAlerta()" class="ml-2 font-bold hover:text-red-400">✖</button>
   </div>
 
 </div>
