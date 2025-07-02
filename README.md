@@ -1,27 +1,49 @@
-# InvitationToDate
+# 💌 Convite Irrecusável - Projeto Angular + Tailwind
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.17.
+Este projeto foi desenvolvido em **Angular 17** com **Tailwind CSS** e **SCSS**, para convidar uma gata de Tabuleiro do Norte para um encontro 🥂. A ideia era sair do comum e usar criatividade + programação para fazer um convite "irrecusável". Resultado? Uma experiência interativa, com efeitos, animações e até botão que foge 😅.
 
-## Development server
+---
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## ✨ Funcionalidades
 
-## Code scaffolding
+- 📝 **Texto sendo digitado** automaticamente para criar suspense;
+- 🎈 **Balão flutuante com convite** e horário do date;
+- ✅ **Botão de confirmação** com link direto pro WhatsApp com mensagem personalizada;
+- ❌ **Botão de recusa com proposta alternativa**, também via WhatsApp;
+- 🏃‍♂️ **Botão “Não” que foge do mouse** (ela não vai escapar tão fácil assim! 😂);
+- 🎨 Layout responsivo e visualmente romântico com **Tailwind** e **gradientes suaves**;
+- 🧠 Desenvolvido com boas práticas Angular e componentes standalone.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+---
 
-## Build
+## 🚀 Tecnologias Usadas
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+- **Angular 17**
+- **Tailwind CSS**
+- **SCSS**
+- **TypeScript**
+- **HTML5**
 
-## Running unit tests
+---
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## 🛠️ Como rodar localmente
 
-## Running end-to-end tests
+```bash
+# Clone o repositório
+git clone https://github.com/marcoscunhaa/Unmissable-Invitation.git
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+# Entre na pasta
+cd Unmissable-Invitation
 
-## Further help
+# Instale as dependências
+npm install
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+# Rode a aplicação
+ng serve
+```
+
+___
+
+### 🎯 Aplicação em execução:
+
+![convite_irrecusável](src/assets/convite_irrecusável.gif "convite irrecusável_app")
